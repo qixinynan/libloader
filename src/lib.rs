@@ -1,3 +1,5 @@
+pub use libloading;
+
 #[macro_export]
 /// ## Get a function from a dynamic link library
 ///
@@ -37,7 +39,7 @@ macro_rules! get_libfn {
     ($lib_path: expr, $fn_name: expr, $call_name: ident, $ret: ty, $($v: ident: $t:ty),*) => {
         pub fn $call_name($($v: $t),*) -> $ret {
             unsafe {
-                let lib = libloading::Library::new("libstd.dylib").unwrap();
+                let lib = libloading::Library::new($lib_path).unwrap();
                 let func: libloading::Symbol<fn($($t,)*) -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
                 func($($v,)*)
             }
@@ -46,7 +48,7 @@ macro_rules! get_libfn {
     ($lib_path: expr, $fn_name: expr, $call_name:ident, $ret: ty) => {
         pub fn $call_name() -> $ret {
             unsafe {
-                let lib = libloading::Library::new("libstd.dylib").unwrap();
+                let lib = libloading::Library::new($lib_path).unwrap();
                 let func: libloading::Symbol<fn() -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
                 func()
             }
