@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Qixinies <3185835784@qq.com>"]
 description = "A easy-to-use dll loader for rust that based on libloading"
 license-file = "LICENSE"
-keywords = ["so", "dll", "dylib", "load", "shared", "dlopen"]
+keywords = ["so", "dll", "load", "shared", "dlopen"]
 repository = "https://github.com/Qixinies/libloader/"
 
 
