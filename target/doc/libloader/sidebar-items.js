@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":[["create_libfn","lib_path: The path of dll fn_name: The function of dll’s function call_name: The call function of fn_name (v: t): The params of the function"]]};
