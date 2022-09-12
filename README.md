@@ -1,6 +1,15 @@
-# libloader
+<h1 align="center">Welcome to libloader 👋</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.4-blue.svg?cacheSeconds=2592000" style="display:inline-block" />
+  <a href="" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+    <a href="https://crates.io/crates/libloader" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/on-crates.io-green.svg" />
+  </a>
+</p>
 
-**libloader is a easy-to-use DLL loader for rust that based on libloading**
+> libloader is a easy-to-use DLL loader for rust that based on libloading
 
 It is very easy to dynamically call a function from dynamic link library (DLL files for Windows, so files for Unix/Linux dylib for macOS )
 
