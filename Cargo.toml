@@ -1,6 +1,6 @@
 [package]
 name = "libloader"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Qixinies <3185835784@qq.com>"]
 description = "A easy-to-use dll loader for rust that based on libloading"
