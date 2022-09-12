@@ -2,6 +2,9 @@
 name = "libloader"
 version = "0.1.0"
 edition = "2021"
+authors = ["Qixinies <3185835784@qq.com>"]
+definitions = "A easy-to-use dll loader for rust that based on libloading"
+license-file = "LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
