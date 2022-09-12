@@ -2,7 +2,7 @@ pub use libloading;
 
 #[macro_export]
 /// ## Get a function from a dynamic link library
-///
+/// *You need `use libloader::libloading` first*
 /// * `lib_path`: the path of DLL
 /// * `fn_name`: The function name from dll
 /// * `call_name`: The call function name of `fn_name`
@@ -39,8 +39,8 @@ macro_rules! get_libfn {
     ($lib_path: expr, $fn_name: expr, $call_name: ident, $ret: ty, $($v: ident: $t:ty),*) => {
         pub fn $call_name($($v: $t),*) -> $ret {
             unsafe {
-                let lib = super::libloading::Library::new($lib_path).unwrap();
-                let func: super::libloading::Symbol<fn($($t,)*) -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
+                let lib = libloading::Library::new($lib_path).unwrap();
+                let func: libloading::Symbol<fn($($t,)*) -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
                 func($($v,)*)
             }
         }
@@ -48,8 +48,8 @@ macro_rules! get_libfn {
     ($lib_path: expr, $fn_name: expr, $call_name:ident, $ret: ty) => {
         pub fn $call_name() -> $ret {
             unsafe {
-                let lib = super::libloading::Library::new($lib_path).unwrap();
-                let func: super::libloading::Symbol<fn() -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
+                let lib = libloading::Library::new($lib_path).unwrap();
+                let func: libloading::Symbol<fn() -> $ret> = lib.get($fn_name.as_bytes()).unwrap();
                 func()
             }
         }

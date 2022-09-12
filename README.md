@@ -5,6 +5,7 @@
 It is very easy to dynamically call a function from dynamic link library (DLL files for Windows, so files for Unix/Linux dylib for macOS )
 
 Use this function to get the function from DLL
+
 ```rust
 get_libfn!(
     "path.dll",
@@ -17,7 +18,9 @@ get_libfn!(
     ...
 );
 ```
+
 For example, We have these functions from libstd.dylib
+
 ```rust
 // lib.rs （compiled into libstd.dylib)
 #[no_mangle]
@@ -36,9 +39,12 @@ pub fn print_hello() {
 }
 
 ```
+
 We can call it with:
-```//
+
+```rust
 // main.rs
+use libloader::libloading
 fn main() {
     get_libfn!("libstd.dylib", "println", my_println, (), str: &str);
     my_println("Hello World");
@@ -50,3 +56,11 @@ fn main() {
     my_print_hello();
 }
 ```
+
+The output is:
+```
+Hello World
+10 + 20 = 30
+hello
+```
+
